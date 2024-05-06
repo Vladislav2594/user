@@ -11,4 +11,7 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
     database-platform: org.hibernate.dialect.PostgreSQL10Dialect
-
+  liquibase:
+    change-log: db.liqubase/chandelog.xml
+    default-schema: testuser
+    enabled: true

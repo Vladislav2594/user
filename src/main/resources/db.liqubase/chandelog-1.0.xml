@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="add table user" author="Popkov VV">
+        <preConditions>
+            <not>
+                <tableExists tableName="user"/>
+            </not>
+        </preConditions>
+        <createTable tableName="user">
+            <column name="id" type="uuid"/>
+            <column name="name" type="varchar(255)"/>
+            <column name="phone" type="varchar(255)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="add column email to user" author="Popkov VV">
+        <preConditions>
+            <not>
+                <columnExists tableName="user" columnName="email"/>
+            </not>
+        </preConditions>
+        <addColumn tableName="user">
+            <column name="email" type="varchar(255)"/>
+        </addColumn>
+    </changeSet>
+
+</databaseChangeLog>
