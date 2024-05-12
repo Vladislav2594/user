@@ -4,10 +4,9 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 
-
 @Setter
 @Getter
-public class UserDTO {
+public class UserRq {
 
     private String username;
     private String phone;

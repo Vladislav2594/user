@@ -6,12 +6,16 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.Accessors;
 import org.hibernate.annotations.UuidGenerator;
 
 import java.util.UUID;
 
+@Setter
+@Getter
 @Entity
 @Table(name = "user", schema = "testuser")
 public class User {
@@ -21,60 +25,14 @@ public class User {
     private UUID id;
 
     @Column(name = "name")
+    @NotNull(message = "Имя пользователя не должно быть пустым!")
     private String username;
 
     @Column(name = "phone")
     private String phone;
 
     @Column(name = "email")
+    @NotNull(message = "Пожалуйста, укажите почту!")
     private String email;
-
-
-    public User() {
-
-    }
-    public User(UUID id, String username, String phone, String email) {
-        this.id = id;
-        this.username = username;
-        this.phone = phone;
-        this.email = email;
-    }
-    public User(String username, String phone, String email) {
-        this.username = username;
-        this.phone = phone;
-        this.email = email;
-    }
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
 }
